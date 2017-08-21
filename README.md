@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/fybwid/sidodi-tdd.png?label=ready&title=Ready)](https://waffle.io/fybwid/sidodi-tdd?utm_source=badge)
 # README
 
 This README would normally document whatever steps are necessary to get the
