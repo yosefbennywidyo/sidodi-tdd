@@ -7,7 +7,7 @@ services:
 before_install: gem install bundler
 
 before_script:
-  - psql -c 'create database sidodi-tdd_test;' -U postgres
+  - psql -c 'CREATE DATABASE sidodi-tdd_test;' -U postgres
 
 deploy:
   provider: heroku
