@@ -9,7 +9,6 @@ before_install: gem install bundler
 before_script:
   - "sh -e /etc/init.d/xvfb start"
   - cp config/database.travis.yml config/database.yml
-  - cp config/mongoid.travis.yml config/mongoid.yml
   - export PARALLEL_TEST_PROCESSORS=4
   - RAILS_ENV=development bundle exec rake db:create db:migrate
   - bundle exec rake parallel:create parallel:load_schema parallel:prepare
