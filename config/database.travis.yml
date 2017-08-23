@@ -2,7 +2,7 @@ postgresql: &postgresql
   adapter: postgresql
   username: postgres
   password:
-  database: strano_<%= Rails.env %>
+  database: sidodi-tdd_test
   min_messages: ERROR
 
 defaults: &defaults
