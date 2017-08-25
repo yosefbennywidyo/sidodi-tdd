@@ -11,9 +11,9 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       #adding a join table for has_and_belongs_to_many relationship
       #model order needs to be alphabetical
     create_table :sections_users do |t|
+      t.integer :role_id
       t.integer :section_id
       t.integer :user_id
-      t.integer :role_id
     end
     
     #add an index to speed queries up
