@@ -16,7 +16,20 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.integer :user_id
     end
     
+    create_table :outgoing_mails_users do |t|
+      t.integer :role_id
+      t.integer :outgoing_mail_id
+      t.integer :user_id
+    end
+    
+    create_table :incoming_mails_users do |t|
+      t.integer :role_id
+      t.integer :incoming_mail_id
+      t.integer :user_id
+    end
+    
     #add an index to speed queries up
+    add_index(:sections_users, [:section_id, :user_id, :role_id])
     add_index(:sections_users, [:section_id, :user_id, :role_id])
   end
 end
