@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :statuses
   resources :roles
   resources :incoming_mails
   resources :outgoing_mails
