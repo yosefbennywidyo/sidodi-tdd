@@ -1,0 +1,2 @@
+class OutgoingMail < ApplicationRecord
+end

@@ -1,0 +1,27 @@
+<%= form_with(model: outgoing_mail, local: true) do |form| %>
+  <% if outgoing_mail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(outgoing_mail.errors.count, "error") %> prohibited this outgoing_mail from being saved:</h2>
+
+      <ul>
+      <% outgoing_mail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :outgoing_mail_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :outgoing_mail_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

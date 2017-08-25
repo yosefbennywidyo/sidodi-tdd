@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :outgoing_mails
   resources :sections
   resources :users
   get 'home/index'
