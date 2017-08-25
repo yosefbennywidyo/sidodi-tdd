@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @incoming_mail.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @incoming_mail.description %>
+</p>
+
+<%= link_to 'Edit', edit_incoming_mail_path(@incoming_mail) %> |
+<%= link_to 'Back', incoming_mails_path %>

@@ -1,0 +1,2 @@
+class IncomingMail < ApplicationRecord
+end
