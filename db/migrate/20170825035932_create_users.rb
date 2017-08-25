@@ -30,6 +30,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
     
     #add an index to speed queries up
     add_index(:sections_users, [:section_id, :user_id, :role_id])
-    add_index(:sections_users, [:section_id, :user_id, :role_id])
+    add_index(:outgoing_mails_users, [:role_id, :outgoing_mail_id, :user_id])
+    add_index(:incoming_mails_users, [:role_id, :incoming_mail_id, :user_id])
   end
 end
