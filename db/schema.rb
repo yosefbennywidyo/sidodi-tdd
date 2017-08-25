@@ -10,9 +10,79 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170825050806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+  end
+
+  create_table "incoming_mails", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.integer "section_id"
+    t.integer "user_id"
+    t.integer "role_id"
+    t.integer "status_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "outgoing_mails", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.integer "section_id"
+    t.integer "user_id"
+    t.integer "role_id"
+    t.integer "status_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_outgoing_mails_on_role_id"
+    t.index ["section_id"], name: "index_outgoing_mails_on_section_id"
+    t.index ["status_id"], name: "index_outgoing_mails_on_status_id"
+    t.index ["user_id"], name: "index_outgoing_mails_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "job"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string "section_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sections_users", force: :cascade do |t|
+    t.integer "role_id"
+    t.integer "section_id"
+    t.integer "user_id"
+    t.index ["section_id", "user_id", "role_id"], name: "index_sections_users_on_section_id_and_user_id_and_role_id"
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string "detail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

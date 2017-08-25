@@ -10,13 +10,5 @@ class CreateOutgoingMails < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
-    #add an index to speed queries up
-    add_index :outgoing_mails, :section_id
-    #add an index to speed queries up
-    add_index :outgoing_mails, :user_id
-    #add an index to speed queries up
-    add_index :outgoing_mails, :role_id
-    #add an index to speed queries up
-    add_index :outgoing_mails, :status_id
   end
 end
